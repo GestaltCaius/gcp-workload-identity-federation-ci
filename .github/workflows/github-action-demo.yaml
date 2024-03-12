@@ -4,8 +4,7 @@ on: push
 
 jobs:
   example-job:
-    runs-on: 
-      group: ubuntu-runners
+    runs-on: ubuntu-latest
     permissions:
       contents: 'read'
       id-token: 'write'
