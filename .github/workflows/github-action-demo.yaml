@@ -16,8 +16,9 @@ jobs:
     - id: 'auth'
       uses: 'google-github-actions/auth@v2'
       with:
-        project_id: 'my-project'
-        workload_identity_provider: 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
+        project_id: 'ran-sandbox-1d2d'
+        service_account: 'github-ci@ran-sandbox-1d2d.iam.gserviceaccount.com'
+        workload_identity_provider: 'projects/419723385417/locations/global/workloadIdentityPools/github-pool/providers/github-provider'
 
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v2'
