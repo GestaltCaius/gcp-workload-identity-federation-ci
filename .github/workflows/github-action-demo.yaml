@@ -1,0 +1,29 @@
+name: github-workload-identity-federation-example
+
+on: push
+
+jobs:
+  example-job:
+    runs-on: 
+      group: ubuntu-runners
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+    - uses: 'actions/checkout@v4'
+
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v2'
+      with:
+        project_id: 'my-project'
+        workload_identity_provider: 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
+
+    - name: 'Set up Cloud SDK'
+      uses: 'google-github-actions/setup-gcloud@v2'
+
+    - name: 'gcloud usage'
+      run: |-
+        gcloud --version
+        gcloud storage ls
+  
